@@ -1,0 +1,20 @@
+https://medium.com/@Alabuja/social-login-in-laravel-with-socialite-90dbf14ee0ab
+
+setup localhost
+- tien hanh tao mot application co chuc nang facebook login
+  Add New App -> choose setup facebook login -> enter app url:localhost
+- In App Domain: enter localhost
+- IN Site URL: enter localhost
+- IN Facebook Login/settings/Valid OAuth Redirect URIs: enter localhost/facebook/callback( this is
+  url for facebook call to your application)
+
+
+-- google login
+--- config
+    tien hanh tao mot application theo link sau https://console.developers.google.com/
+    tien hanh enable google + API
+    thay doi thong tin app hien thi toi user:OAuth consent screen/Application name
+    tao credential loaij la Oauth Client Id, applicaiton type la web va setting 2 gia tri nhu sau
+        - Authorized JavaScript origins: localhost
+        - Authorized redirect URIs: callback url
+
