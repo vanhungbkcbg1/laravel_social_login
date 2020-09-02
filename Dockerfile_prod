@@ -1,0 +1,18 @@
+FROM composer AS composer
+COPY composer.json /app
+COPY composer.lock /app
+COPY database/ /app/database
+RUN composer install \
+    --ignore-platform-reqs \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --prefer-dist
+
+FROM php:7-fpm-alpine
+WORKDIR /var/www/html
+COPY ./ /var/www/html
+COPY --from=composer /app/vendor/ /var/www/html/vendor
+RUN ls /var/www/html
+EXPOSE 9000
+CMD ["php-fpm","-F","-R"]
