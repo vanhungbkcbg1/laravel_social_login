@@ -20,3 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{provider}/callback', 'SocialController@callBack')->name('login_callback');
 Route::get('/redirect/{provider}', 'SocialController@redirect')->name('login_provider');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+    Route::resource('products','ProductController');
+});
