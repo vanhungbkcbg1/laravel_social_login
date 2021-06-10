@@ -1,0 +1,2 @@
+trong kernel sẽ đảm nhận việc load config, boot service provider, config xử lí exception
+xem trong Illuminate\Foundation\Http\Kernel hàm bootstrap
