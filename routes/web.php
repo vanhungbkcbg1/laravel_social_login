@@ -25,4 +25,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('products','ProductController');
+    Route::resource('posts','PostController');
+    Route::post('/posts/{post}/comments','PostController@addComment')->name("posts.add_comment");
 });

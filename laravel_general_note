@@ -1,2 +1,4 @@
 trong kernel sẽ đảm nhận việc load config, boot service provider, config xử lí exception
 xem trong Illuminate\Foundation\Http\Kernel hàm bootstrap
+ngoài ra trong file \Illuminate\Foundation\Bootstrap\HandleExceptions có định nghĩa lại cách thức xử lí exception trong laravel
+
