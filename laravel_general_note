@@ -2,3 +2,9 @@ trong kernel sẽ đảm nhận việc load config, boot service provider, confi
 xem trong Illuminate\Foundation\Http\Kernel hàm bootstrap
 ngoài ra trong file \Illuminate\Foundation\Bootstrap\HandleExceptions có định nghĩa lại cách thức xử lí exception trong laravel
 
+\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class, load environment
+        \Illuminate\Foundation\Bootstrap\LoadConfiguration::class, load configuration
+        \Illuminate\Foundation\Bootstrap\HandleExceptions::class, config xu li exception
+        \Illuminate\Foundation\Bootstrap\RegisterFacades::class, dang ki facade
+        \Illuminate\Foundation\Bootstrap\RegisterProviders::class, dang ki provider
+        \Illuminate\Foundation\Bootstrap\BootProviders::class,
