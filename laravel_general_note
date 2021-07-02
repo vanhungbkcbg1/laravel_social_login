@@ -8,3 +8,7 @@ ngoài ra trong file \Illuminate\Foundation\Bootstrap\HandleExceptions có đị
         \Illuminate\Foundation\Bootstrap\RegisterFacades::class, dang ki facade
         \Illuminate\Foundation\Bootstrap\RegisterProviders::class, dang ki provider
         \Illuminate\Foundation\Bootstrap\BootProviders::class,
+
+trong kernel cũng có file tự động set cookies là session id hiện tại
+
+
