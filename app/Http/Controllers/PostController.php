@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Filters\Title;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Pipeline\Pipeline;
 use Spatie\Permission\Models\Role;
 
 class PostController extends Controller
@@ -19,6 +21,16 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
+        $query =Post::query();
+        $pipeline = app(Pipeline::class)
+                    ->send($query)
+                    ->through([
+                       Title::class
+                    ])
+                    ->thenReturn()->get();
+
+        dd($pipeline);
+
         $posts = Post::orderBy('id','DESC')->paginate(5);
         return view('posts.index',compact('posts'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
