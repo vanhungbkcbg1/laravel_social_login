@@ -1,0 +1,11 @@
+form request duoc dinh nghia trong \Illuminate\Foundation\Providers\FormRequestServiceProvider::boot
+ở sự kiện
+$this->app->afterResolving(ValidatesWhenResolved::class, function ($resolved) {
+            $resolved->validateResolved();
+        });
+
+khi resolve đối tượng của class ValidatesWhenResolved xong code trong hàm call back ở trên sẽ được gọi
+
+class \Illuminate\Foundation\Http\FormRequest đang extend class ValidatesWhenResolved nên xem thêm trong class nay
+
+nếu muốn tạo mới một rule request thì tạo class extend từ interface \Illuminate\Contracts\Validation\Rule

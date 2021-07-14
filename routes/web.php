@@ -21,6 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{provider}/callback', 'SocialController@callBack')->name('login_callback');
 Route::get('/redirect/{provider}', 'SocialController@redirect')->name('login_provider');
 
+Route::get('demo-request','DemoRequestController@index')->name("demo_request_index");
+Route::post('demo-request','DemoRequestController@store')->name("demo_request_store");
+
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
