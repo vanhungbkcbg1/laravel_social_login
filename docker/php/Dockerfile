@@ -6,6 +6,11 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 #RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
 #    install-php-extensions imagick
 
+# install composer
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN php -r "unlink('composer-setup.php');"
+
 RUN apk add --no-cache $PHPIZE_DEPS \
 	&& pecl install xdebug \
 	&& docker-php-ext-enable xdebug
