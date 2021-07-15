@@ -4,3 +4,10 @@ ví dụ trong \App\Http\Controllers\DemoRequestController chúng ta có khai b�
 
 trong AppServiceProvider chúng ta đăng kí thêm event resolving của class SimpleLib
 và thực hiện set giá trị container cho object
+
+việc gọi event sau khi resolve được object , ở trong method \Illuminate\Container\Container::resolve
+````
+if ($raiseEvents) {
+            $this->fireResolvingCallbacks($abstract, $object);
+        }
+````
